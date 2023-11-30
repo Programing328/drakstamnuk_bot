@@ -2,6 +2,7 @@ from telegram import ChatAction, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, Filters
 from datetime import datetime 
 import pyshorteners
+import requests
 import qrcode
 import os
 
@@ -34,9 +35,6 @@ def start(update, context):
         text='Acortar URL',
         callback_data='url'
     )
-
-def read_qr_command_handler (update,context):
-    qrPhoto = update.message.photo
 
     update.message.reply_text('Inicializando p_328 bot...')
     update.message.reply_text(
@@ -144,7 +142,7 @@ def input_url(update, context):
 
 if __name__ == '__main__':
 
-    updater = Updater(token='TOKEN', use_context=True)
+    updater = Updater(token='6528431792:AAHu8ZazCCXTJj-JO-TBg-uFFrxctsoakf8', use_context=True)
 
     dp = updater.dispatcher
 
@@ -155,7 +153,6 @@ if __name__ == '__main__':
             CommandHandler('qr', qr_command_handler),
             CommandHandler('url', url_command_handler),
             CommandHandler('dateTime', dateTime_command_handler),
-            CommandHandler('readQR', read_qr_command_handler),
             CallbackQueryHandler(pattern='qr', callback=qr_callback_handler),
             CallbackQueryHandler(pattern='url', callback=url_callback_handler)
         ],
