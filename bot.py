@@ -2,6 +2,7 @@ from telegram import ChatAction, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, ConversationHandler, MessageHandler, Filters
 from datetime import datetime 
 import pyshorteners
+import requests
 import qrcode
 import os
 
@@ -141,7 +142,7 @@ def input_url(update, context):
 
 if __name__ == '__main__':
 
-    updater = Updater(token='TOKEN', use_context=True)
+    updater = Updater(token='6528431792:AAHu8ZazCCXTJj-JO-TBg-uFFrxctsoakf8', use_context=True)
 
     dp = updater.dispatcher
 
