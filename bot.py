@@ -35,6 +35,9 @@ def start(update, context):
         callback_data='url'
     )
 
+def read_qr_command_handler (update,context):
+    qrPhoto = update.message.photo
+
     update.message.reply_text('Inicializando p_328 bot...')
     update.message.reply_text(
         text='Drakstamnuk.bot se ha inicializado con exito!\n',
@@ -152,6 +155,7 @@ if __name__ == '__main__':
             CommandHandler('qr', qr_command_handler),
             CommandHandler('url', url_command_handler),
             CommandHandler('dateTime', dateTime_command_handler),
+            CommandHandler('readQR', read_qr_command_handler),
             CallbackQueryHandler(pattern='qr', callback=qr_callback_handler),
             CallbackQueryHandler(pattern='url', callback=url_callback_handler)
         ],
